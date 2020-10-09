@@ -26,10 +26,10 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var questions = [
+    const questions = [
       {
         'questionText': 'Which is your favorite web dev framework?',
-        'answers': ['Djanfo', 'Reactjs', 'Angular', 'Flutter'],
+        'answers': ['Django', 'Reactjs', 'Angular', 'Flutter'],
       },
       {
         'questionText': 'What\'s your favorite OS?',
@@ -48,9 +48,10 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: [
             Question(questions[_questionIndex]['questionText']),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
+            ...(questions[_questionIndex]['answers'] as List<String>)
+                .map((answer) {
+              return Answer(_answerQuestion, answer);
+            }).toList()
           ],
         ),
       ),
