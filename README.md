@@ -1,6 +1,6 @@
 # Flutter
 
-A new Flutter project.
+This is just a sample quiz app, made to begin with Dart and Flutter. No such UI is added at this point.
 
 ## Getting Started
 
